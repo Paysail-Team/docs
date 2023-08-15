@@ -1,0 +1,82 @@
+---
+title: 'GitHub'
+icon: 'GitHub'
+---
+
+## Integrating GitHub
+
+In this tutorial, you'll learn the steps to configure secrets for automatic two-way synchronization with GitHub. 
+
+### **Prerequisites**
+
+Before integrating GitHub with your secret manager, please ensure you have the following prerequisites in place:
+
+- Access to your GitHub account.
+- Admin privileges for the repository with which you want to sync secrets.
+- Familiarity with GitHub repositories, settings, and access controls.
+
+Please make sure you have the necessary permissions and access to perform the required actions within GitHub. If you require assistance with managing permissions and access, refer to the **[GitHub documentation on managing access](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)**.
+
+### **Integration**
+
+Select the **Project** or **Sub-Project** you would want to integrate with GitHub, navigate to the **Integrations** tab and select the **GitHub tile** to begin the authorization process.
+
+<img height="200" src="/images/integrations-tab.png" />
+
+If you have not previously integrated GitHub with a Syro Project or Sub-Project, you will see the following screen:
+
+<img height="200" src="/images/github-integration.png" />
+
+### ****Authorize Syro****
+
+Grant Syro access to your GitHub account by signing into GitHub (this only allows for GitHub Repo privileges)
+
+<img height="200" src="/images/github-signin-before.png" />
+<img height="200" src="/images/github-singin-after.png" />
+
+## **Start Integration**
+
+Select which **GitHub repository secrets** you want to sync with your Syro Project or Sub-Project and press **Confirm** to start syncing secrets. 
+
+<img height="200" src="/images/github-start-integration.png" />
+
+*******************Note: Integrating GitHub will not sync the key/value pair from GitHub; it will only sync the secret key (not the value of the key). An illustration of the difference is below:*******************
+
+**Example: Key without Value** 
+
+Key: ACME_API_KEY
+Value: N/A
+
+**Example: Key/Value Pair**
+
+Key: ACME_API_KEY
+Value: abcdef1234567890
+
+Rest assured, once you have synced the secret keys from the repo of your choice, you can add the values to the key value pairs.
+
+## **Adding Values**
+
+Once the secret keys are synced, the values will appear as “N/A.” 
+
+<img height="200" src="/images/adding-values-1.png" />
+
+To add a value before saving, start by pressing view to directly edit the secret. 
+
+<img height="200" src="/images/adding-values-2.png" />
+
+Next, enter the corresponding key’s value. 
+
+<img height="200" src="/images/adding-values-3.png" />
+
+Press “Confirm” to confirm the changes. 
+
+<img height="200" src="/images/adding-values-4.png" />
+
+Once you have entered values for each of the newly synced secrets, press “Save” to finalize and save the changes. 
+
+<img height="200" src="/images/adding-values-4.png" />
+
+## ******************Adding Additional Repositories******************
+
+To sync to an additional GitHub repository, you can integration an additional repository under the “Integrations” tab. The concurrent GitHub integrations will appear under the “Active integrations” tab.
+<img height="200" src="/images/adding-repositories.png" />

@@ -1,0 +1,55 @@
+---
+title: 'Members/Project Permissions'
+icon: 'user-plus'
+---
+
+### Overview
+
+To add a user to a specific project, it's crucial to first add them to your organization. Once the user is added, you can add them to any project or sub-project. Please note, simply adding them to your organization doesn't grant them access to any secrets. Specific permissions for accessing secrets must be expressly granted by you.
+
+### **Adding a Member to your Organization**
+
+To add a user to your organization:
+
+1. Navigate to the "**Settings**" page.
+2. Click "**Invite Team Member**".
+
+<img height="200" src="/images/add-team-member.png" />
+
+Enter the user's first name, last name, and email address.
+
+<img height="200" src="/images/invite-team-member.png" />
+
+Once a user is added, they will receive an invite email notifying them. Once accepted, they will be a member of your organization.
+
+<img height="200" src="/images/pending-member.png" />
+
+### Managing Invites
+
+Once the invite is sent, you have the option to either resend the invite if the new user has not accepted the invite, or remove the user.
+
+<img height="200" src="/images/edit-member.png" />
+<img height="200" src="/images/remove-member.png" />
+
+### Adding a User to a Project
+
+To add a user to a project:
+
+1. Navigate to the "**Settings**" page within your project.
+2. Press "**Add**".
+
+<img height="200" src="/images/user-to-project.png" />
+
+A list of your organization's users will be displayed. From this list, select the user you want to add to your project.
+
+*Note: To add a user to a project, you must first add them to your organization. The new user must accept the invitation and set up their account. To invite a new user, navigate to the “**Settings**” tab on the navigation bar and follow the steps above.*
+
+<img height="200" src="/images/add-member-to-project.png" />
+
+To remove a user from a specific project, click on the “**Remove**” button and confirm removal. This will revoke the removed user's access to any of that project's secrets.
+
+<img height="200" src="/images/remove-member.png" />
+
+### Managing Access
+
+If permissions are granted to the master project (in this illustrative example, the "**database**" project), the added user will have access to all of the nested projects and secrets. However, if the user is only added to a sub-project (for example, the "**billing_services**" project), they will not have access to any other sub-projects or the master project and its secrets.

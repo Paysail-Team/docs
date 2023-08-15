@@ -1,0 +1,60 @@
+---
+title: 'Projects & Sub-Projects'
+icon: 'map'
+---
+
+Syro uses a project and sub-project structure to organize and house app config, environment variables, and secrets for an application.
+
+Within Syro, subprojects (or root configs) can be utilized to employ different environments (development, staging, & production) or for app micro-services. By enabling unlimited nested sub-projects, Syro gives you flexibility and customization.
+
+### Create a Project
+
+From the ******************Projects****************** tab, you can create your first project.
+
+The navigation menu is the list of links on every website.
+
+You will likely update `mint.json` every time you add a new page. Pages do not show up automatically.
+
+<img height="200" src="/images/createproject.png" />
+
+To create a new project, you'll need to provide a project name and an optional description.
+
+<img height="200" src="/images/nameproject.png" />
+
+Once a project is created, it will appear in tile form on your ******************Projects****************** tab. If your app has multiple  Projects, users can easily navigate between them from this view.
+
+<img height="200" src="/images/projectstab.png" />
+
+### Your Project
+
+Within your newly created project, you will see four tabs (Secrets, Subprojects, Integrations, and Settings). These will enable you to structure your project, its integrations, and permissions to best meet your organization’s needs.
+
+<img height="200" src="/images/yourprojects.png" />
+
+### **Sub-Projects**
+
+Within your **Project**, you can create **Sub-projects** to be utilized for different app environments, micro-services architecture, or third-party integrations.
+
+<img height="200" src="/images/createsubproject.png" />
+<img height="200" src="/images/subprojects.png" />
+
+***Permissions Note:** If permissions are granted at the project level (e.g., to the "database" project in this example), that user will also have access to all nested sub-projects and their secrets. However, if a user is only added to a specific sub-project (like the "billing_services" sub-project), they won't have access to any other sub-projects or to the parent project and its secrets.*
+
+### **Deleting a Project**
+
+If you need to delete a project or sub-project, follow these steps:
+
+1. Navigate to the **Settings** tab within the project or sub-project you wish to delete.
+2. Click **Delete Project** to initiate the deletion process.
+
+<img height="200" src="/images/deleteproject.png" />
+
+3. Confirm the deletion by pressing Confirm.
+
+<img height="200" src="/images/confirmdelete.png" />
+
+**Danger Zone:** Deleting a project or sub-project is a permanent action and cannot be undone. It will remove all secrets, sub-projects, and integrations associated with that project. Please proceed with caution. Ensure you want to delete the project and have secured any necessary data before proceeding.
+
+*Note: The ability to delete a project is only provided to the project creator.*
+
+If you encounter any issues or need additional help, email us at **support@syro.com** for assistance.

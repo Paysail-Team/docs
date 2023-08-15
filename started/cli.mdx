@@ -1,0 +1,56 @@
+---
+title: 'CLI Integration'
+icon: 'code'
+---
+
+## Getting Started
+
+The Syro Command Line Interface (CLI) is a tool that enables secure access to your project secrets. 
+It integrates directly into your workflows, supporting both local development and CI/CD pipelines.
+
+Prerequisites:
+
+- Node should be installed on your system to execute npm commands. If Node is not installed, download it from **[here](https://nodejs.org/en/download)**.
+- To verify successful installation, run `node -v` and `npm -v`. If the commands return version numbers, Node and npm have been installed successfully and are ready for use in any directory.
+
+## Installation
+
+To install the Syro CLI package globally, execute `npm i -g @withsyro/cli`. If the package is installed successfully without any errors, the `syro` command will be available globally in your system. To verify this, type `syro` in your terminal.
+
+## Commands
+
+- `syro pull`: Pulls secrets from your Syro project
+
+## Injecting Secrets
+
+The Syro CLI allows you to inject secrets into your process by using the `syro pull` command. All secrets associated with the provided access token are automatically exported to a .env file in your current directory. The `syro pull` command requires the following arguments:
+
+`syro pull <Your-Access-Token>`
+
+**Access Token** `<Your-Access-Token>`: A project specific access token that is uses to pull in project specific secrets. To retrieve the access token, visit the "Settings" page of the relevant project. The “Access Tokens” section contains your project specific tokens. 
+
+Note: You will need to generate a new token if this is the first time you are accessing the CLI app.
+
+For more information, take a look at [API & Access Token](<a href="/started/accesstoken.mdx">) documentation.
+
+## Github Actions
+
+The Syro CLI can also be used in Github Actions. Here is a sample Github Actions .yml file:
+
+````md
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm i @withsyro/cli -g
+      - run: syro pull <Your-Access-Token>
+````
+
+## Troubleshooting
+
+EACCES: permission denied
+
+Experiencing an **`EACCES: permission denied`** error during installation suggests that the global directory for node modules is currently owned by an OS user different from the one you're currently logged in as. To rectify this situation, follow these steps:
+
+1. Execute **`sudo chown -R $(whoami) /usr/local/bin`**. This command modifies the ownership of the global node modules directory to the currently logged-in OS user. This change allows this user to modify the global node modules directory without needing to use the **`sudo`** prefix, such as in **`sudo npm install <package_name>`**.
+2. Now, run **`sudo chmod -R u+w /usr/local/bin`** to grant write permissions to the current OS user for the global node modules directory. This allows the user to install packages in the global node modules directory without permission-related issues.

@@ -1,0 +1,88 @@
+---
+title: 'API & Access Tokens'
+icon: 'image'
+---
+
+## Getting Started
+
+Welcome to the Syro's Public REST API! Syro offers a robust and secure platform for managing and accessing your secrets through HTTPS requests. This API documentation provides information on how to interact with the API, manage access tokens, handle errors, and understand rate limits.
+
+# Syro API
+
+## Secrets Endpoint
+
+**Endpoint:** `https://api-production.syro.com/secrets`
+
+This endpoint facilitates the extraction of project secrets.
+
+### Method: POST
+
+To retrieve project secrets, make a POST request to this endpoint. The request body should be in JSON format and include the following parameters:
+
+**Parameters:**
+
+- `accessToken`: The token that was generated from the project settings page, on the web app.
+
+### Example
+
+Here's an example of a POST request:
+
+````md
+curl -X POST <https://api-production.syro.com/secrets> \\
+-H "Content-Type: application/json" \\
+-d '{
+  "accessToken": "<Your-Access-Token>"
+}'
+````
+
+*Note: all of the access token/API encryption processes use AES256GCM.*
+
+### **HTTP Status Codes**
+
+The API responds with standard HTTP status codes to indicate the success or failure of a request. Common codes include:
+
+- **`200 OK`**: The request was successful.
+- **`400 Bad Request`**: The request was invalid or cannot be served.
+- **`401 Unauthorized`**: The request requires user authentication.
+- **`404 Not Found`**: The requested resource could not be found.
+
+### **Rate Limiting**
+
+Rate limiting details are communicated in the **`X-RateLimit-*`** headers of every response. If the rate limit is exceeded, the API will respond with a **`429 Too Many Requests`** status code.
+
+### **Error Handling**
+
+In case of an error, the API returns a JSON object with an **`error`** key, providing a message about what went wrong. For instance, a **`400 Bad Request`** might look like this:
+
+````md
+{
+  "error": "Invalid request parameters"
+}
+````
+
+## **Authentication and Security**
+
+Before using the Syro API, you must generate a specific access token, which is used to authenticate your requests and ensure secure, encrypted access to your end-to-end encrypted project.
+
+## Access Tokens
+
+To generate an access token, follow these steps:
+
+1. Go to the "Settings" page within your specific project.
+2. Click on "Create" in the "Access Tokens" section.
+
+<img height="200" src="/images/database.png" />
+
+Make sure to copy your access token immediately, because once generated, it will not be visible again.
+<img height="200" src="/images/tokencreated.png" />
+
+### Managing Tokens
+
+You can generate an unlimited number of Access Tokens for a specific project, enabling fine-grained access control.
+
+### Deleting an Access Token
+
+To delete an Access Token, click "Remove". This will invalidate the token and prevent it from being used to access secrets via the API.
+<img height="200" src="/images/removetoken.png" />
+
+We strive to make this documentation as clear, concise, and complete as possible to help you make successful use of the Syro API. If you have any questions or feedback, please contact us at support@syro.com.

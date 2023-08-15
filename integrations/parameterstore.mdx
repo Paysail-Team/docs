@@ -1,0 +1,47 @@
+---
+title: 'AWS Parameter Store'
+icon: 'AWS'
+---
+
+## Integrating AWS Parameter Store
+
+In this tutorial, you'll learn the steps to configure Syro secrets for automatic two-way synchronization with AWS Parameter Store.
+
+### Prerequisites
+
+- AWS Console Access
+- AWS IAM access
+    
+    [Ability to create IAM roles and permissions](https://www.notion.so/Ability-to-create-IAM-roles-and-permissions-80c111b88aec45ea8f4c683d2e5ec160?pvs=21)
+    
+    - Ability to access IAM users
+
+### **Integration**
+
+Select to the **Project** or **Sub-Project** you would want to integrate with Parameter Store, navigate to the **Integrations** tab and select the **AWS Parameter Store** tile ****to begin the authorization process.
+
+<img height="200" src="/images/integrations-tab.png" />
+
+If you have not previously integrated AWS Parameter Store to your Syro Project or Sub-Project, you will see the following screen:
+
+<img height="200" src="/images/param-store-integration.png" />
+
+- **Access Key ID**: Part of the security credentials used to authenticate requests to AWS services, including the Parameter Store.
+- **Secret Access Key**: Part of your security credentials, similar to a password, which together with your Access Key ID, allows Syro to securely access Parameter Store.
+- **Region:** The AWS region where the cluster of data centers where the secrets you are pull into Syro are geographically located i.e. **us-east-1**
+
+### **Authorize Syro**
+
+To allow Syro to access Parameter Store, you must obtain your AWS Access Key ID and Secret access key from your IAM user. You can do so by following this path on AWS:
+
+**IAM > Users > User > Security credentials > Access keys** 
+
+<img height="200" src="/images/access-keys.png" />
+
+Select ************Third-party service************ to enable Syro’s two-way syncing
+
+<img height="200" src="/images/third-party-sync.png" />
+
+From here, you can retrieve your **Access Key ID** and **Secret Access Key,** and paste them in the input boxes for Access Key ID and Secret Access Key respectively.
+
+<img height="200" src="/images/retrieve-access.png" />
