@@ -1,0 +1,42 @@
+---
+title: 'Ability to create IAM roles and permissions'
+description: '**Granting IAM user with access to AWS Secrets Manager**'
+---
+
+Navigate to the permissions section of your IAM user's settings and implement a permission policy that permits access to the AWS Secrets Manager as show below:
+
+
+<img height="200" src="/images/iamSM1.png" />
+<img height="200" src="/images/iamSM2.png" />
+<img height="200" src="/images/iamSM3.png" />
+
+To enhance security, we've created a custom policy that provides the minimum permissions necessary for Syro to synchronize secrets with the AWS Parameter Store. You can apply this policy to the IAM user as follows:
+
+### Policy
+
+1. Navigate to the Create New Policy section in the AWS IAM console
+2. Switch to the JSON tab
+3. Enter the following policy
+
+```bash
+{
+      "Version": "2012-10-17",
+      "Statement": [
+      {
+          "Sid": "AllowSecretsManagerAccess",
+          "Effect": "Allow",
+          "Action": [
+               "secretsmanager:GetSecretValue",
+               "secretsmanager:DescribeSecret",
+               "secretsmanager:PutSecretValue",
+               "secretsmanager:CreateSecret",
+               "secretsmanager:DeleteSecret",
+               "secretsmanager:TagResource",
+               "secretsmanager:UpdateSecret
+            ],
+            "Resource": "*"
+         }
+     ]
+}
+```
+4. Name your policy and press create

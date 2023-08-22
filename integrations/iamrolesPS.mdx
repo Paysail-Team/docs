@@ -1,0 +1,45 @@
+---
+title: 'Ability to create IAM roles and permissions'
+description: '**Granting IAM user with access to AWS Parameter Store**'
+---
+
+Navigate to the permissions section of your IAM user's settings and implement a permission policy that permits access to the AWS Parameter Store as show below:
+
+
+<img height="200" src="/images/iamPS1.png" />
+<img height="200" src="/images/iamPS2.png" />
+<img height="200" src="/images/iamPS3.png" />
+
+To enhance security, we've created a custom policy that provides the minimum permissions necessary for Syro to synchronize secrets with the AWS Parameter Store. You can apply this policy to the IAM user as follows:
+
+### Policy
+
+1. Navigate to the Create New Policy section in the AWS IAM console
+2. Switch to the JSON tab
+3. Enter the following policy
+
+```bash
+{
+      "Version": "2012-10-17",
+      "Statement": [
+      {
+          "Sid": "AllowSSMAccess",
+          "Effect": "Allow",
+          "Action": [
+               "ssm:PutParameter",
+               "ssm:LabelParameterVersion",
+               "ssm:DeleteParameter",
+               "ssm:RemoveTagsFromResource",
+               "ssm:GetParameterHistory",
+               "ssm:AddTagsToResource",
+               "ssm:GetParametersByPath",
+               "ssm:GetParameters",
+               "ssm:GetParameter",
+               "ssm:DeleteParameters"
+            ],
+            "Resource": "*"
+         }
+     ]
+}
+```
+4. Name your policy and press create
